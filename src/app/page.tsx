@@ -1,6 +1,6 @@
+import AddTodo from "@/Components/AddTodo";
+import TodoList from "@/Components/TodoList";
 import { getAllTodos } from "@/api";
-import AddTodo from "../components/AddTodo";
-import TodoList from "../components/TodoList";
 
 const Page = async () => {
   const tasks = await getAllTodos();

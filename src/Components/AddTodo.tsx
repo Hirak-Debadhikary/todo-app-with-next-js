@@ -10,6 +10,7 @@ const AddTodo = () => {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [newTextValue, setNewTextValue] = useState<string>("");
+  const [newStatusValue, setNewStatusValue] = useState<string>("");
 
   const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -17,8 +18,10 @@ const AddTodo = () => {
     await addTodo({
       id: uuidv4(),
       title: newTextValue,
+      status: newStatusValue,
     });
     setNewTextValue("");
+    setNewStatusValue("");
     setModalOpen(false);
     router.refresh();
   };
@@ -43,6 +46,18 @@ const AddTodo = () => {
               value={newTextValue}
               onChange={(e) => setNewTextValue(e.target.value)}
             />
+            <select
+              value={newStatusValue}
+              className="select select-info max-w-xs w-2/5"
+              onChange={(e) => setNewStatusValue(e.target.value)}
+            >
+              <option>
+                Select Status
+              </option>
+              <option value="To Do">To Do</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
             <button type="submit" className="btn w-30">
               Submit
             </button>
