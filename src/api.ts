@@ -1,6 +1,6 @@
 import { Task } from "./types/tasks";
 
-const baseUrl = "http://localhost:3001/task";
+const baseUrl = "https://masai-quiz-ilul.onrender.com/task";
 
 export const getAllTodos = async (): Promise<Task[]> => {
   const res = await fetch(`${baseUrl}`, { cache: "no-store" });
